@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  db:
+    container_name: mariadb
+    image: mariadb:10.7
+    expose:
+      - "3306"
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - ./db_data:/var/lib/mysql
+
+  app:
+    container_name: hello-phalcon
+    build: .
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/html/
+    working_dir: /var/www/html
+    depends_on:
+      - db
