@@ -21,3 +21,5 @@ RUN curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php \
 RUN apt install git -y
 
 RUN composer require phalcon/devtools
+
+CMD ["php", "-S", "0.0.0.0:3000", "-t", "public", ".htrouter.php"]
