@@ -16,9 +16,9 @@ services:
     container_name: hello-phalcon
     build: .
     ports:
-      - "80:80"
+      - "3001:3000"
     volumes:
       - .:/var/www/html/
-    working_dir: /var/www/html
+    working_dir: /var/www/html/app
     depends_on:
       - db
