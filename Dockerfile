@@ -22,4 +22,8 @@ RUN apt install git -y
 
 RUN composer require phalcon/devtools
 
+# for DB
+RUN docker-php-ext-install pdo_mysql
+RUN composer require --dev phalcon/migrations
+
 CMD ["php", "-S", "0.0.0.0:3000", "-t", "public", ".htrouter.php"]
